@@ -1,0 +1,7 @@
+{
+  "name": "wad-kolektor",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

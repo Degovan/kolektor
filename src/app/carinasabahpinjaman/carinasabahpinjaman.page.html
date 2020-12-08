@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/angsuranbayar"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Daftar Nasabah</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item *ngFor="let anggota of data" (click)="detailnasabah(anggota.idanggota, anggota.sisapinjaman)" class="ion-margin" color="primary">
+      <div *ngIf="anggota.code == '200'">
+      
+      <ion-label>
+        <small>Nama Nasabah : </small><br>
+        <h2><b>{{anggota.nama}}</b></h2>
+        <ion-chip color="warning" outline>
+          <ion-label color="warning">No. Rek {{anggota.kodepusat}}{{anggota.kodecabang}}{{anggota.kodeanggota}}</ion-label>
+        </ion-chip><br>
+        <small>Alamat Lengkap : </small><br>
+        <p class="ion-text-wrap">{{anggota.alamat}}</p>
+
+        <small>Status Pinjaman : </small><br>
+        <ion-badge color="danger" *ngIf="anggota.sisapinjaman > 0">Belum Lunas</ion-badge>
+        <ion-badge color="success" *ngIf="!anggota.sisapinjaman">Sudah Lunas</ion-badge>
+      </ion-label>
+
+    </div>
+    
+    <div *ngIf="anggota.code == 500">
+      Data yang anda cari tidak ditemukan.
+    </div>
+    </ion-item>
+</ion-content>

@@ -1,0 +1,40 @@
+.bglogin{
+   
+    --ion-background-color: url('../../assets/images/galaxy.jpg') no-repeat;
+
+}
+
+.bglogin h1{
+   top:200;
+    font-size: 20pt;
+    color: #fff;
+    font-weight: 600;
+}
+
+.bglogin h3{
+    font-size: 12pt;
+    color: #fff;
+    font-weight: 300;
+    margin-bottom: -20px;
+}
+
+.bglogin > .d-flex > img{
+    margin: auto;
+    display: block;
+}
+
+ion-card{
+    border:1px dashed #fff;
+}
+ion-input{
+    border:2px #fff solid;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    color:#fff;
+    height: 40px;
+    font-size: 12px;
+}
+
+ion-grid{
+   top:300;
+}

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Ubah Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light" class="ion-padding">
+    Gunakan form dibawah untuk mengubah profil anda.
+  </ion-card>
+  <ion-list *ngFor="let item of datauser" color="light" class="ion-padding">
+    <ion-item>
+      <ion-label position="stacked">Username</ion-label>
+      {{usernamex}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nama Lengkap</ion-label>
+      <ion-input clearInput [(ngModel)]="form.namauser" value="{{item.nama}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="form.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password Lagi</ion-label>
+      <ion-input type="password" [(ngModel)]="form.passwordlagi"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+
+  <div class="ion-padding">
+    <ion-button color="warning" expand="block" (click)="simpan()">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      Simpan Profil
+    </ion-button>
+  </div>
+</ion-content>

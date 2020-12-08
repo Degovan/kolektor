@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Atur Printer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+       Pilih Printer
+      </ion-label>
+    </ion-list-header>
+  
+    <ion-item>
+      <ion-label>Printer Tersedia</ion-label>
+      <ion-select [(ngModel)]="selectedPrinter" okText="Okay" cancelText="Dismiss" placeholder="Select One">
+        <ion-select-option *ngFor="let item of bluetoothList" [value]="item.id" class="ion-text-wrap">{{item.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    </ion-list>
+
+    <div class="ion-padding" style="text-align:center;">
+      <ion-button color="warning" (click)="printStuff()">
+        <ion-icon name="search" slot="start"></ion-icon>
+        Test Print
+      </ion-button>
+      <ion-button color="success" (click)="save()">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        Save
+      </ion-button>
+    </div>
+</ion-content>

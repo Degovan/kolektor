@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Data Nasabah</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button color="warning" expand="block" (click)="carinasabah()">
+      <ion-icon name="search" slot="start"></ion-icon>
+      Cari Nasabah
+    </ion-button>
+
+    <ion-button color="danger" expand="block" (click)="refreshnasabah()">
+      <ion-icon name="refresh-outline" slot="start"></ion-icon>
+      Refresh Data
+    </ion-button>
+  </div>
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of itemListData" color="primary" class="ion-margin">
+      
+      <ion-avatar slot="start">
+        <img src="../../assets/icon/dalban.png">
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <h2>{{item.nama}}</h2>
+        <ion-chip  color="light">
+          <ion-label>No. Rek {{item.kodepusat}}{{item.kodecabang}}{{item.kodeanggota}}</ion-label>
+        </ion-chip>
+        <p>{{item.alamat}}</p>
+        <ion-badge color="danger" (click)="detailnasabah(item.idanggota)">
+          <ion-icon name="search-circle-outline" slot="start"></ion-icon> Lihat Detail
+        </ion-badge>&nbsp;
+        <ion-badge color="warning">
+          <ion-icon name="location-outline" slot="start"></ion-icon> <a href="https://www.google.com/maps/search/?api=1&query={{item.lat}},{{item.lng}}">Cek Lokasi</a>
+        </ion-badge>
+        
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

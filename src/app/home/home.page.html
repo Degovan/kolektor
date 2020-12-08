@@ -1,0 +1,106 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-item class="ion-text-wrap">
+    <ion-thumbnail slot="start">
+      <img src="../../assets/icon/dalban.png">
+    </ion-thumbnail>
+    <ion-label *ngFor="let user of userData" >
+      <h3><b>Welcome, {{user.nama}}</b></h3>
+      <ion-badge color="danger"><ion-icon name="power-outline"></ion-icon> Login : {{user.logindate}} WIB</ion-badge>
+    </ion-label>
+    
+   
+  </ion-item>
+  
+
+  <ion-card color="secondary">
+      
+    <ion-card-content *ngFor="let pinj of userData" >
+      <h3>Total Setoran Pinjaman (Bulan Ini)</h3>
+      <h1>Rp {{pinj.totalpinjaman}},-</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="warning">
+      
+    <ion-card-content *ngFor="let simp of userData" >
+      <h3>Total Setoran Simpanan (Bulan Ini)</h3>
+      <h1>Rp {{simp.totalsimpanan}},-</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardicon">
+    <ion-card-content>
+      <small>TRANSAKSI</small>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" [routerLink]="['/setoran']">
+            <img src="../../assets/icon/simpanan.png" width="36" ><small style="line-height:60%;"><br>Setor Simpanan</small>
+          </ion-col>
+          <ion-col size="3"  [routerLink]="['/angsuranbayar']">
+            <img src="../../assets/icon/pinjaman.png" width="36"><br><small>Setor Pinjaman</small>
+          </ion-col>
+          <ion-col size="3" [routerLink]="['/cetaksimpanan']">
+            <img src="../../assets/icon/cetak.png" width="36"><br><small>Cetak Simpanan</small>
+          </ion-col>
+          <ion-col size="3" [routerLink]="['/cetakpinjaman']">
+            <img src="../../assets/icon/cetak.png" width="36"><br><small>Cetak Pinjaman</small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>  
+  </ion-card>
+
+  <ion-card class="cardicon">
+    <ion-card-content>
+      <small>NASABAH</small>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" [routerLink]="['/datanasabah']">
+            <img src="../../assets/icon/anggota.png" width="36"><br><small style="line-height:60%;">Data Anggota</small>
+          </ion-col>
+
+          <ion-col size="3" [routerLink]="['/kasnasabah']">
+            <img src="../../assets/icon/kassimpanan.png" width="36"><br><small style="line-height:60%;">Kas Simpanan</small>
+          </ion-col>
+
+          <ion-col size="3"  [routerLink]="['/kaspinjaman']">
+            <img src="../../assets/icon/kaspinjaman.png" width="36"><br><small style="line-height:60%;">Kas Pinjaman</small>
+          </ion-col>
+          
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>  
+  </ion-card>
+
+  <ion-card class="cardicon">
+    <ion-card-content>
+      <small>PROFIL KOLEKTOR</small>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3"  [routerLink]="['/profil']">
+            <img src="../../assets/icon/profil.png" width="38"><br><small style="line-height:60%;">Ubah Profil</small>
+          </ion-col>
+          
+          <ion-col size="3"  [routerLink]="['/setprinter']">
+            <img src="../../assets/icon/print.png" width="38"><br><small style="line-height:60%;">Setting Printer</small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>  
+  </ion-card>
+
+  <div class="ion-padding d-flex justify-content-center">
+    <ion-button color="warning" expand="block" [routerLink]="['/login']">
+      <ion-icon name="power-outline" slot="start"></ion-icon>
+      LOGOUT SISTEM
+    </ion-button>
+  </div>
+  <br><br>
+
+
+</ion-content>

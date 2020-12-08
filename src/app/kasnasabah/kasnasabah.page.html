@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Kas Simpanan Nasabah</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card color="warning">
+      
+    <ion-card-content *ngFor="let simp of userData" >
+      <h3>Total Kas Simpanan Nabasah</h3>
+      <h1>Rp {{simp.totalsimpanan}},-</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list class="ion-margin">
+
+    <ion-item *ngFor="let item of itemListData" color="primary">
+      
+      <ion-label class="ion-text-wrap" *ngIf="item.code == 200">
+        <h2>{{item.nama}}</h2>
+        <ion-chip>
+          <ion-label color="danger">No. Rek {{item.kodepusat}}{{item.kodecabang}}{{item.kodeanggota}}</ion-label>
+        </ion-chip>
+        <p>Total : Rp {{item.jumlah}} ,-</p>
+      </ion-label>
+
+      <div *ngIf="item.code == 500">
+        <img src="../../assets/images/empty-result_shot.png">
+      </div>
+    </ion-item>
+
+   
+  </ion-list>
+</ion-content>

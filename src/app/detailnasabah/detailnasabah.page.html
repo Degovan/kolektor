@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/datanasabah"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Detail Nasabah</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card color="light" *ngFor="let item of nasabah" >
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" position="stacked">Kode Anggota</ion-label>
+         <p>{{item.kodepusat}}{{item.kodecabang}}{{item.kodeanggota}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Nama Nasabah</ion-label>
+          {{item.nama}}
+         
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Tempat, Tanggal Lahir</ion-label>
+         {{item.tempatlahir}}, {{item.tanggallahir}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Alamat</ion-label>
+          {{item.alamat}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">No. Identitas</ion-label>
+          {{item.ktp}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Pekerjaan</ion-label>
+          {{item.pekerjaan}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Ibu Kandung</ion-label>
+          {{item.namaibu}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Saudara</ion-label>
+          {{item.namasaudara}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Hubungan Saudara</ion-label>
+          {{item.hubsaudara}}
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Alamat Saudara</ion-label>
+          {{item.alamatsaudara}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Telp. Saudara</ion-label>
+          {{item.telpsaudara}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Rekening</ion-label>
+          {{item.namabank}} ({{item.kodebank}}) {{item.norek}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Email</ion-label>
+          {{item.email}}
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" position="stacked">Status Kawin</ion-label>
+          {{item.statuskawin}}
+        </ion-item>
+
+
+      </ion-list>
+
+      <div class="ion-padding">
+        <ion-button color="warning" expand="block" (click)="updatelokasi()">
+          <ion-icon name="search" slot="start"></ion-icon>
+          Update Lokasi
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Setor Angsuran Pinjaman</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">NAMA NASABAH</ion-label>
+      <ion-input [(ngModel)]="data.nama" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">ALAMAT</ion-label>
+      <ion-input [(ngModel)]="data.alamat" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">NO. KTP</ion-label>
+      <ion-input [(ngModel)]="data.ktp" value=""></ion-input>
+    </ion-item>
+    
+  </ion-list>
+
+  <div class="ion-padding">
+    <ion-button color="warning" expand="block" (click)="cari()">
+      <ion-icon name="search" slot="start"></ion-icon>
+      Cari Nasabah
+    </ion-button>
+  </div>
+</ion-content>

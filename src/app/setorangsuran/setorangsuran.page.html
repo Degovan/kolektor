@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/angsuranbayar"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Setoran Angsuran</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="primary">
+    <ion-card-content *ngFor="let item of data" >
+      <small>Detail Nasabah:</small><br>
+      <ion-chip color="danger">
+        <ion-label color="light">No. Rek {{item.kodepusat}}{{item.kodecabang}}{{item.kodeanggota}}</ion-label>
+      </ion-chip>
+      <h3><b>{{item.nama}}</b></h3>
+      <small class="ion-text-wrap">{{item.alamat}}</small>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="warning">
+      
+    <ion-card-content *ngFor="let sisa of data" >
+      <h3>Sisa Pinjaman</h3>
+      <h1>Rp {{sisa.sisa}},-</h1>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+
+
+  <ion-item *ngFor="let angs of angsuran" (click)="bayarangsuran(angs.idpinjaman,angs.angske,angs.tempo, angs.jumlah_bayar, angs.basil, angs.biayareset, angs.angsbln,angs.lama, angs.biayakolektor, angs.sisatagihan, angs.bayar_pokok)" color="light" class="ion-margin">
+   
+    <ion-label>
+      <h2>Setoran ke {{angs.angske}}</h2>
+      <p>Tempo : {{angs.tempo}}</p>
+      <h3 class="text-wrap">Rp {{angs.angsbln}},-</h3>
+      <ion-chip color="danger">
+        <ion-label>Belum Bayar</ion-label>
+      </ion-chip>
+      
+    </ion-label>
+  </ion-item>
+
+  
+  </ion-list>
+</ion-content>

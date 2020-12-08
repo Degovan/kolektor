@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Daftar Angsuran Pinjaman</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of data" color="primary" class="ion-margin">
+      <div *ngIf="item.code == 200">
+        <ion-label class="ion-text-wrap" >
+        
+          <h3>{{item.nama}}</h3>
+          <ion-chip  color="warning">
+            <p class="text-wrap">Tanggal : {{item.tglbayar}}</p>
+          </ion-chip>
+          <p>Total : Rp {{item.jumlah}},-</p>
+          
+        </ion-label>
+        <ion-button color="danger" expand="block" (click)="printdata(item.idpinjaman)">
+          <ion-icon name="print-outline" slot="start"></ion-icon>
+          Cetak
+        </ion-button>
+      </div> 
+      
+       
+
+      <div *ngIf="item.code == 500">
+        <img src="../../assets/images/empty-result_shot.png">
+      </div> 
+    </ion-item>
+
+   
+    
+  </ion-list>
+</ion-content>

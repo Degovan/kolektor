@@ -1,0 +1,47 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content class="ion-padding bglogin">
+  <br><br><br>
+  <div class="d-flex justify-content-center"><img src="../../assets/images/logos.png" width="100"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <img src="../../assets/icon/loginicon.png" width="100">
+      </ion-col>
+      <ion-col size="9">
+       <h3>Welcome to Wad System</h3>
+       <h1>Kolektor</h1>
+       
+      </ion-col>
+      
+    </ion-row>
+   </ion-grid> 
+
+
+
+
+<ion-card>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-input [(ngModel)]="data.username" placeholder="Masukkan Username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      
+      <ion-input [(ngModel)]="data.password" placeholder="Masukkan Password" type="password"></ion-input>
+    </ion-item>
+
+   
+  </ion-card-content>
+</ion-card>
+<br><br><br>
+<ion-button color="warning" expand="block" (click)="prosesLogin()">
+  <ion-icon slot="start" name="lock-open-outline"></ion-icon>
+  Login Sistem
+</ion-button>
+
+
+</ion-content>

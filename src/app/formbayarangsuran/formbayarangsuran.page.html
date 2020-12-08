@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/angsuranbayar"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Form Pembayaran Angsuran</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light">
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary" position="stacked">Angsuran Ke</ion-label>
+           {{angsuranke}}
+          </ion-item>         
+  
+          <ion-item>
+            <ion-label color="primary" position="stacked">Sisa Tagihan</ion-label>
+            Rp {{sisatagihan}},-           
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" position="stacked">Angsuran per bulan</ion-label>
+            Rp {{angsuranbln}},-
+           
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Jumlah Bayar</ion-label>
+            <ion-input [(ngModel)]="bayar" (keyup)="convert($event)"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" position="stacked">Biaya Reset</ion-label>
+            Rp {{biayareset}},-
+           
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked">Biaya Kolektor</ion-label>
+            Rp {{biayakolektor}},-
+           
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="floating">Tanggal Bayar</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Pilih Tanggal" [(ngModel)]="tanggal"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="floating">Simpan ke Kas</ion-label>
+            <ion-select [(ngModel)]="kas" okText="Okay" cancelText="Dismiss">
+              <ion-select-option *ngFor="let item of jeniskas" [value]="item.idakun" class="ion-text-wrap">{{item.namakas}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label color="primary" position="floating">Keterangan</ion-label>
+            <ion-textarea [(ngModel)]="keterangan"></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    
+
+  <div class="ion-padding">
+    <ion-button color="warning" expand="block" (click)="simpanangsuran()">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      Bayar Angsuran
+    </ion-button>
+  </div>
+</ion-content>

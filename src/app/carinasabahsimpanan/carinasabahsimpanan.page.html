@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/setoran"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Form Setoran Simpanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+
+    <ion-item *ngFor="let anggota of data" (click)="detailnasabah(anggota.idanggota)">
+      <ion-avatar slot="start" *ngIf="anggota.code == 200" >
+        <img src="../../assets/icon/anggota.png">
+      </ion-avatar>
+      <ion-label *ngIf="anggota.code == 200">
+        <h2>{{anggota.nama}}</h2>
+        <h3>{{anggota.kodepusat}}{{anggota.kodecabang}}{{anggota.kodeanggota}}</h3>
+        <p class="ion-text-wrap">{{anggota.alamat}}</p>
+      </ion-label>
+
+      <div *ngIf="anggota.code == 500">
+        <img src="../../assets/images/empty-result_shot.png">
+      </div>
+    </ion-item>
+
+    
+  </ion-list>
+</ion-content>
